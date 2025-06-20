@@ -49,7 +49,7 @@ Feature: MARVEL-001 Gestión de personajes Marvel (microservicio para personajes
   @id:5 @updateCharacter @exitoso
   Scenario: T-API-DAGONZAL-123-CA05-Actualizar personaje existente 200 - karate
     * def body = read('classpath:personajes/update_character_valid.json')
-    Given path '/characters/'+12
+    Given path '/characters/'+15
     And request body
     When method PUT
     Then status 200
@@ -65,7 +65,7 @@ Feature: MARVEL-001 Gestión de personajes Marvel (microservicio para personajes
     # And match response.error == 'Character not found'
   @id:7 @deleteCharacter @exitoso
   Scenario: T-API-DAGONZAL-123-CA07-Eliminar personaje existente 204 - karate
-    Given path 'characters', '13'
+    Given path 'characters', '16'
     When method DELETE
     Then status 204
 
@@ -75,3 +75,15 @@ Feature: MARVEL-001 Gestión de personajes Marvel (microservicio para personajes
     When method DELETE
     Then status 404
     # And match response.error == 'Character not found'
+
+  @id:9 @flujo_completo @dinamico
+  Scenario: T-API-DAGONZAL-123-CA09-Flujo completo: crear, consultar, actualizar y eliminar personaje - karate
+  # Paso 1: Crear personaje con nombre aleatorio
+    * def uuid = java.util.UUID.randomUUID() + ''
+    * def body = read('classpath:personajes/create_character_aleatory.json')
+    Given path 'characters'
+    And request body
+    When method POST
+    Then status 201
+    * def created = response
+    * def id = created.id

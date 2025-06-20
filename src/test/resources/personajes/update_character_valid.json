@@ -1,9 +1,9 @@
 {
-  "name": "Capitan America",
-  "alterego": "Tony Stark",
-  "description": "New description",
+  "name": "TestHero-1",
+  "alterego": "Test New",
+  "description": "Generated character new",
   "powers": [
-    "Armor",
-    "Flight"
+    "Invisibility",
+    "Speed"
   ]
 }
