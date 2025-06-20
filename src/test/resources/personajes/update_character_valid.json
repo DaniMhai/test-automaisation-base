@@ -1,0 +1,9 @@
+{
+  "name": "Capitan America",
+  "alterego": "Tony Stark",
+  "description": "New description",
+  "powers": [
+    "Armor",
+    "Flight"
+  ]
+}
